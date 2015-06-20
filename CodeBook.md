@@ -5,22 +5,37 @@ This project read in data from the human activity movement study.....
 
 
 
+Per the readme text on the downloaded file the source data we imported was obtained as follows: 
 
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
+The data were obtained from the URL  https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  this file was downloaded into the  GettingAndCleaningData/CourseProject folder and then unzipped.  The files were extracted by referencing them in the "../" folders above the R studio work space such as: 
+read.table("../UCI HAR Dataset/test/X_test.txt")  other files were imported into R tables using the same folder structure.   See the comments in the run_analysis.R file in this git repository. 
 
-CodeBook
+The test and train file sets were each merged using rbind so that one large file with 10299 rows was created over both test and join data sets. 
+
+Ther run_analysis.R file has comments with each step in the project analysis so that it can be run as a single autommated script with the comments providing all the CodeBook information necessary for this project.
+CodeBook ==========================================================================
 Variables
+ The data were summarized and grouped by activityId and Subject Id as per project instructions 
+ and the data were joined to the activity identifiers and subject ids where were in separate files.  These columns were included in the summarized report by using a join with a resulting dataFrame resultsJoins.
+ 
+ 
  names(resultsJoins)
- [1] "activityId"      Numeric identifier of activity id        
-               "activityName"     Name of activity
- [3] "subjectId"          subject id for participant
+  "activityId"      Numeric identifier of activity id        
+  "activityName"     Name of activity
+   "subjectId"          subject id for participant
 
 Time based variables
 BodyAcc is 
 mean - is average
 -std is standard deviation
 -X,-Y-Z are 3 dimensional movements detected by accelerometer
+Acc is taken from Accelerometer measurements.
+Gyro was taken from the Gyrometer measurements. 
+
 
    "time_BodyAcc-mean-X"              
  [5] "time_BodyAcc-mean-Y"         
