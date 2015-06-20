@@ -21,7 +21,8 @@ CodeBook =======================================================================
 Variables
  The data were summarized and grouped by activityId and Subject Id as per project instructions 
  and the data were joined to the activity identifiers and subject ids where were in separate files.  These columns were included in the summarized report by using a join with a resulting dataFrame resultsJoins.
- 
+
+Note on Values:   Features are normalized and bounded within [-1,1] for each measurement identified.
  
  names(resultsJoins)
   "activityId"      Numeric identifier of activity id        
